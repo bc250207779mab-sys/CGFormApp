@@ -20,12 +20,8 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Gradle & Build APK
+      - name: Build APK with Gradle
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.2-bin.zip
-          unzip -q gradle-8.2-bin.zip -d $HOME/gradle
-          export PATH="$HOME/gradle/gradle-8.2/bin:$PATH"
-          gradle wrapper --gradle-version 8.2
           chmod +x gradlew
           ./gradlew assembleDebug --stacktrace --no-daemon
 
