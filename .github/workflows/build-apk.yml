@@ -1,4 +1,4 @@
-name: Build APK
+name: Build APK        # ← Make sure this exists at line 1
 
 on:
   push:
@@ -21,15 +21,3 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: Grant execute permission for Gradle
-        run: chmod +x gradlew
-
-      - name: Build Debug APK
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-        name: app-apk
-       path: app/build/outputs/apk/debug/app-debug.apk
